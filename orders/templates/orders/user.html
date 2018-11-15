@@ -1,0 +1,23 @@
+{% extends 'mainapp/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container content">
+  <div class="col-sm-8 col-sm-offset-2">
+      <table class="table">
+        <thead>
+          <th> Orders</th>
+          <th> Time</th>
+
+        </thead>
+        <tfoot>
+        </tfoot>
+          {% for userOrder in order %}
+            <tr>
+              <td><a href="/order/{{userOrder.id}}">{{ userOrder }}</a></td>
+              <td>{{ userOrder.timestamp }}</td>
+            </tr>
+          {% endfor %}
+      </table>
+
+{% endblock%}

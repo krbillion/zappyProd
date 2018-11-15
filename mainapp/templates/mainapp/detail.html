@@ -1,0 +1,37 @@
+{% extends 'mainapp/layout.html' %}
+{% load static %}
+
+<div class="page-header">
+  <h1>{{ product.title }}</h1>
+</div>
+
+{% block content %}
+<div class="container content">
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="col-xs-12 col-md-6">
+      <img class="img-responsive content" src="{{product.product_image.url}}" alt="Card image cap">
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <h1>{{ product.title }}
+        <!-- <a href="{% url 'carts:update_cart' product.slug %}?qty=12" class="float-right">Add to Cart</a> -->
+     </h1>
+       <form class="form float-right" action="{% url 'carts:update_cart' product.slug %}" method="get">
+         <input type="number" name="qty" value="1">
+         <input type="submit" name="" value="Add To Cart">
+       </form>
+    <hr>
+    price: {{product.price}} <br>
+    Shipping: Free with 500+ Rs. purchase
+    <hr>
+    {{ product.description | linebreaks }}
+  </div>
+</div>
+
+
+</div>
+
+{% endblock %}

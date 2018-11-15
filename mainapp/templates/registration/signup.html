@@ -1,0 +1,16 @@
+{% extends 'mainapp/layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="post" action="" class="customform">
+  <div class="form-group center content container">
+    <h1>Sign Up</h1>
+    {{ form | crispy }}
+    {% csrf_token %}
+    <input class="btn btn-primary" type="submit" name="" value="login">
+    <a class="btn btn-primary" href="/">Go back</a>
+  </div>
+</form>
+
+{% endblock %}

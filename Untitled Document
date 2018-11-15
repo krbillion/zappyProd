@@ -1,0 +1,55 @@
+<div class="container content">
+  <div class="col-sm-8 col-sm-offset-2">
+
+  <!-- {% if empty %}
+  <h1 >{{msg}}</h1>
+  {% else %} -->
+      <table class="table">
+        <thead>
+          <!-- <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th> -->
+          <th> Orders</th>
+          <th> Time</th>
+
+        </thead>
+        <tfoot>
+          <!-- <tr>
+            <td></td>
+            <td></td>
+            <td>Total: {{ cart.total }}</td>
+          </tr> -->
+        </tfoot>
+        <!-- {% for userOrder in order %}
+        <tr>
+          <td> <ul>
+            {% for userProduct in product %}
+              <li>{{ userProduct.product }}</li>
+          {% endfor %}
+        </ul>
+        </td>
+        <td>
+        <ul>
+          {% for userProduct in product %}
+            <li>{{ userProduct.quantity }}</li>
+        {% endfor %}
+      </ul>
+      </td>
+      <td>
+      <ul>
+        {% for userProduct in product %}
+          <li>{{ userProduct.product.price }}</li>
+      {% endfor %}
+    </ul>
+    </td> -->
+          <!-- <td>{{userOrder.cart.quantity}}</td> -->
+          <!-- <td>{{ userOrder.cart.cart.total }}</td> -->
+          {% for userOrder in order %}
+            <tr>
+              <td>{{ userOrder }}</td>
+              <td>{{ userOrder.timestamp }}</td>
+            </tr>
+          {% endfor %}
+      </table>
+  <!-- {% endif %} -->

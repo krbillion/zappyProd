@@ -1,0 +1,62 @@
+{% extends 'mainapp/layout.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+
+     <div class="row">
+
+       <!-- Product Entries Column -->
+       <div class="col-md-8">
+
+         <h1 class="my-4">{{title}}</h1>
+
+         <!-- product list -->
+         <div class="album py-5 bg-light">
+           <div class="container">
+             <div class="row">
+               {% for product in products %}
+               <div class="col-md-4">
+                 <div class="card mb-4 box-shadow">
+                   <img class="card-img-top" src="{{product.product_image.url}}" alt="Card image cap">
+                   <div class="card-body">
+                     <h5><a href="{% url 'mainapp:detail' product.slug %}">{{ product.title }}</a></h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                     <label>price: {{ product.price }}</label>
+                     <div class="d-flex justify-content-between align-items-center">
+                       <form class="form float-right" action="{% url 'carts:update_cart' product.slug %}" method="get">
+                         <input type="number" name="qty" value="1">
+                         <input type="submit" name="" value="Add To Cart">
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               {% endfor %}
+             </div>
+           </div>
+         </div>
+
+         <!-- Pagination -->
+         <!-- <div class="pagination">
+           <span class="step-links">
+               {% if posts.has_previous %}
+                   <a href="?page=1">&laquo; first</a>
+                   <a href="?page={{ contacts.previous_page_number }}">previous</a>
+               {% endif %}
+               <span class="current">
+                   Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+               </span>
+               {% if posts.has_next %}
+                   <a href="?page={{ posts.next_page_number }}">next</a>
+                   <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+               {% endif %}
+           </span>
+          </div> -->
+
+       </div>
+     </div>
+   </div>
+</div>
+{% endblock %}
